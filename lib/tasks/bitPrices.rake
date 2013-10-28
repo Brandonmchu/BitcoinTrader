@@ -4,7 +4,6 @@ task :fetch_prices => :environment do
 require 'nokogiri'
 require 'open-uri'
 require 'net/smtp'
-require 'httparty'
 
 #Cavirtex Scraper
 url = "https://www.cavirtex.com/orderbook"
@@ -24,6 +23,11 @@ stampAskQty = response["asks"].first[1].to_f
 #Trading Logic
 lowSpread = stampBidPrice - virtexAskPrice 
 maxSpread = stampBidPrice - virtexBidPrice
+
+@spreadpoint = Spreadpoint.new(:virtexBidPrice => virtexBidPrice, :virtexBidQty => virtexBidQty, :virtexAskPrice => virtexAskPrice, 
+	:virtexAskQty => virtexAskQty, :stampBidPrice => stampBidPrice, :stampBidQty => stampBidQty, :stampAskPrice => stampAskPrice, 
+	:stampAskQty => stampAskQty, :lowSpread => lowSpread, :maxSpread => maxSpread)
+@spreadpoint.save
 
 #Email Message
 roundDollar = 2
@@ -63,13 +67,13 @@ Subject: Lowspread: #{lowSpread.round(roundDollar)}, MaxSpread: #{maxSpread.roun
 
 MESSAGE_END
 
-
 #Email Send Logic
+
 if maxSpread >= 6
-	smtp =Net::SMTP.new 'smtp.gmail.com',587
+	smtp = Net::SMTP.new 'smtp.gmail.com',587
 	smtp.enable_starttls
-	smtp.start("gmail.com",YourAccountName,YourPassword,:login) do
-		smtp.send_message(msg,FromAddress,ToAddress)
+	smtp.start(domain,email,notes,:login) do
+		smtp.send_message(msg,email,email)
 	end
 end
 

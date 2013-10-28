@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 gem 'nokogiri'
 gem 'whenever'
 gem 'httparty'
+gem 'protected_attributes'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

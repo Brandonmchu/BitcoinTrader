@@ -19,5 +19,9 @@
 
 # Learn more: http://github.com/javan/whenever
 every 1.minutes do
-  rake "fetch_prices"
+  rake "fetch_prices", :environment => 'development'
+end
+
+every :reboot do
+  rake "fetch_prices", :environment => 'development'
 end

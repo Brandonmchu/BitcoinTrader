@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  virtexBidPrice: 1.5
+  virtexBidQty: 1.5
+  virtexAskPrice: 1.5
+  virtexAskQty: 1.5
+  stampBidPrice: 1.5
+  stampBidQty: 1.5
+  stampAskPrice: 1.5
+  stampAskQty: 1.5
+  lowSpread: 1.5
+  maxSpread: 1.5
+
+two:
+  virtexBidPrice: 1.5
+  virtexBidQty: 1.5
+  virtexAskPrice: 1.5
+  virtexAskQty: 1.5
+  stampBidPrice: 1.5
+  stampBidQty: 1.5
+  stampAskPrice: 1.5
+  stampAskQty: 1.5
+  lowSpread: 1.5
+  maxSpread: 1.5
