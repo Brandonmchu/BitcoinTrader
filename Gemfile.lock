@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/anjlab/bootstrap-rails.git
+  revision: addb7143365f97f938e3bdbb2ccfc52591230eda
+  branch: 3.0.0
+  specs:
+    anjlab-bootstrap-rails (3.0.0.rc2)
+      railties (>= 3.0)
+      sass (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -38,6 +47,8 @@ GEM
     coffee-script-source (1.6.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    highcharts-rails (3.0.7)
+      railties (>= 3.1)
     hike (1.2.3)
     httparty (0.12.0)
       json (~> 1.8)
@@ -121,7 +132,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  anjlab-bootstrap-rails!
   coffee-rails (~> 4.0.0)
+  highcharts-rails (~> 3.0.0)
   httparty
   jbuilder (~> 1.2)
   jquery-rails

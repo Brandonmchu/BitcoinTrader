@@ -10,6 +10,9 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require twitter/bootstrap
+//= require highcharts
+//= require highcharts/highcharts-more
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks

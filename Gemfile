@@ -6,6 +6,10 @@ gem 'nokogiri'
 gem 'whenever'
 gem 'httparty'
 gem 'protected_attributes'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                          :github => 'anjlab/bootstrap-rails',
+                          :branch => '3.0.0'
+gem "highcharts-rails", "~> 3.0.0"
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

@@ -1,0 +1,68 @@
+<div class="container">
+	<div class="starter-template">
+		<h1 class="text-center">Bootstrap starter template</h1>
+		<p class="lead text-center">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+	</div>
+<div id="container" style="min-width: 800px; height: 800px; margin: 0 auto"></div>
+<script>
+$(function () {
+    var chart;
+    $(document).ready(function () {
+        chart = new Highcharts.Chart({
+            chart:{
+                renderTo:'container',
+                polar: true,
+                type: 'scatter'
+            },
+            title:{
+                text:'bitcoin spread'
+            },
+            xAxis:{
+            }, 
+            yAxis:{
+                min:-5,
+                title:{
+                    text:'spread'
+                }
+            },
+            legend:{
+                layout:'vertical',
+                backgroundColor:'#FFFFFF',
+                align:'left',
+                verticalAlign:'top',
+                x:100,
+                y:70,
+                floating:true,
+                shadow:true
+            },
+            tooltip:{
+                formatter:function () {
+                    return '' +
+                            'Spread' + ': ' + this.y;
+                }
+            },
+            plotOptions:{
+                column:{
+                    pointPadding:0.4,
+                    borderWidth:0
+                }
+            },
+            series:[
+                {
+                    data:[<% @spreadpoint.each do |point| %>
+                    [<%= point.created_at.hour %>,<%= point.maxSpread %>],
+                    <% end %>],
+                    name: 'maxSpread'
+                },
+                {
+                    data:[<% @spreadpoint.each do |point| %>
+                    [<%= point.created_at.hour %>,<%= point.lowSpread %>],
+                    <% end %>],
+                    name: 'lowSpread'
+                }
+            ]
+        });
+    });
+
+});</script>
+</div>

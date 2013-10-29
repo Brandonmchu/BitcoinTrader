@@ -21,8 +21,10 @@ stampAskPrice = response["asks"].first[0].to_f
 stampAskQty = response["asks"].first[1].to_f
 
 #Trading Logic
-lowSpread = stampBidPrice - virtexAskPrice 
+lowSpread = stampBidPrice - virtexAskPrice
+lowSpread = lowSpread.round(3) 
 maxSpread = stampBidPrice - virtexBidPrice
+maxSpread = maxSpread.round(3)
 
 @spreadpoint = Spreadpoint.new(:virtexBidPrice => virtexBidPrice, :virtexBidQty => virtexBidQty, :virtexAskPrice => virtexAskPrice, 
 	:virtexAskQty => virtexAskQty, :stampBidPrice => stampBidPrice, :stampBidQty => stampBidQty, :stampAskPrice => stampAskPrice, 
@@ -35,7 +37,7 @@ roundQty = 3
 msg = <<MESSAGE_END
 MIME-Version: 1.0
 Content-type: text/html
-Subject: Lowspread: #{lowSpread.round(roundDollar)}, MaxSpread: #{maxSpread.round(roundDollar)}
+Subject: Lowspread: #{lowSpread}, MaxSpread: #{maxSpread}
 
 <table border="1">
 	<tbody>
